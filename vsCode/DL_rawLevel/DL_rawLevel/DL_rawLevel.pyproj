@@ -1,0 +1,163 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>1.ANN\Network.py</StartupFile>
+    <SearchPath>1.ANN;..\DL_rawLevel;deep-learning-from-scratch-master</SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>DL_rawLevel</Name>
+    <RootNamespace>DL_rawLevel</RootNamespace>
+    <InterpreterId>Global|VisualStudio|TF_Py35</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="1.ANN\Activation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="1.ANN\Layers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="1.ANN\mnistTest.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="1.ANN\Network.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="1.ANN\Plot.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="1.ANN\TestActivation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="deep-learning-from-scratch-master\ch01\hungry.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch01\img_show.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch01\man.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch01\simple_graph.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch01\sin_cos_graph.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch01\sin_graph.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch02\and_gate.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch02\nand_gate.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch02\or_gate.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch02\xor_gate.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch03\mnist_show.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch03\neuralnet_mnist.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch03\neuralnet_mnist_batch.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch03\relu.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch03\sigmoid.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch03\sig_step_compare.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch03\step_function.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch04\gradient_1d.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch04\gradient_2d.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch04\gradient_method.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch04\gradient_simplenet.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch04\train_neuralnet.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch04\two_layer_net.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch05\buy_apple.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch05\buy_apple_orange.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch05\gradient_check.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch05\layer_naive.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch05\train_neuralnet.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch05\two_layer_net.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\batch_norm_gradient_check.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\batch_norm_test.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\hyperparameter_optimization.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\optimizer_compare_mnist.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\optimizer_compare_naive.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\overfit_dropout.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\overfit_weight_decay.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\weight_init_activation_histogram.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch06\weight_init_compare.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch07\apply_filter.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch07\gradient_check.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch07\simple_convnet.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch07\train_convnet.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch07\visualize_filter.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch08\awesome_net.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch08\deep_convnet.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch08\half_float_network.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch08\misclassified_mnist.py" />
+    <Compile Include="deep-learning-from-scratch-master\ch08\train_deepnet.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\functions.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\gradient.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\layers.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\multi_layer_net.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\multi_layer_net_extend.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\optimizer.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\trainer.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\util.py" />
+    <Compile Include="deep-learning-from-scratch-master\common\__init__.py" />
+    <Compile Include="deep-learning-from-scratch-master\dataset\mnist.py" />
+    <Compile Include="deep-learning-from-scratch-master\dataset\__init__.py" />
+    <Compile Include="DL_rawLevel.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|VisualStudio|TF_Py35" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="1.ANN\" />
+    <Folder Include="ANN\" />
+    <Folder Include="1.ANN\" />
+    <Folder Include="deep-learning-from-scratch-master\" />
+    <Folder Include="deep-learning-from-scratch-master\ch01\" />
+    <Folder Include="deep-learning-from-scratch-master\ch01\images\" />
+    <Folder Include="deep-learning-from-scratch-master\ch02\" />
+    <Folder Include="deep-learning-from-scratch-master\ch03\" />
+    <Folder Include="deep-learning-from-scratch-master\ch04\" />
+    <Folder Include="deep-learning-from-scratch-master\ch05\" />
+    <Folder Include="deep-learning-from-scratch-master\ch06\" />
+    <Folder Include="deep-learning-from-scratch-master\ch07\" />
+    <Folder Include="deep-learning-from-scratch-master\ch08\" />
+    <Folder Include="deep-learning-from-scratch-master\common\" />
+    <Folder Include="deep-learning-from-scratch-master\dataset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1.ANN\sample_weight.pkl" />
+    <Content Include="deep-learning-from-scratch-master\.gitignore" />
+    <Content Include="deep-learning-from-scratch-master\ch01\images\fig 1-1.png" />
+    <Content Include="deep-learning-from-scratch-master\ch01\images\fig 1-2.png" />
+    <Content Include="deep-learning-from-scratch-master\ch01\images\fig 1-3.png" />
+    <Content Include="deep-learning-from-scratch-master\ch01\images\fig 1-4.png" />
+    <Content Include="deep-learning-from-scratch-master\ch01\images\fig 1-5.png" />
+    <Content Include="deep-learning-from-scratch-master\ch01\README.md" />
+    <Content Include="deep-learning-from-scratch-master\ch02\README.md" />
+    <Content Include="deep-learning-from-scratch-master\ch03\README.md" />
+    <Content Include="deep-learning-from-scratch-master\ch03\sample_weight.pkl" />
+    <Content Include="deep-learning-from-scratch-master\ch04\README.md" />
+    <Content Include="deep-learning-from-scratch-master\ch05\README.md" />
+    <Content Include="deep-learning-from-scratch-master\ch06\README.md" />
+    <Content Include="deep-learning-from-scratch-master\ch07\params.pkl" />
+    <Content Include="deep-learning-from-scratch-master\ch07\README.md" />
+    <Content Include="deep-learning-from-scratch-master\ch08\deep_convnet_params.pkl" />
+    <Content Include="deep-learning-from-scratch-master\ch08\README.md" />
+    <Content Include="deep-learning-from-scratch-master\cover_image.jpg" />
+    <Content Include="deep-learning-from-scratch-master\dataset\lena.png" />
+    <Content Include="deep-learning-from-scratch-master\dataset\lena_gray.png" />
+    <Content Include="deep-learning-from-scratch-master\dataset\t10k-images-idx3-ubyte.gz" />
+    <Content Include="deep-learning-from-scratch-master\dataset\t10k-labels-idx1-ubyte.gz" />
+    <Content Include="deep-learning-from-scratch-master\dataset\train-images-idx3-ubyte.gz" />
+    <Content Include="deep-learning-from-scratch-master\dataset\train-labels-idx1-ubyte.gz" />
+    <Content Include="deep-learning-from-scratch-master\equations_and_figures.zip" />
+    <Content Include="deep-learning-from-scratch-master\LICENSE.md" />
+    <Content Include="deep-learning-from-scratch-master\map.png" />
+    <Content Include="deep-learning-from-scratch-master\README.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
