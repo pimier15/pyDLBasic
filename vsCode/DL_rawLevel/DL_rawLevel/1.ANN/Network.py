@@ -57,20 +57,9 @@ def Batch(batchsize):
         indicies = np.argmax(y_batch , axis= 1)
         acc += np.sum( indicies == t[i:i+batchsize])
 
-     print("ACcuracy : {0}".format((float(acc)/len(x))))
+    print("ACcuracy : {0}".format((float(acc)/len(x))))
 
 
 
 if __name__ == "__main__":
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
+    print("")

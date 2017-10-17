@@ -4,8 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>1.ANN\Network.py</StartupFile>
-    <SearchPath>1.ANN;..\DL_rawLevel;deep-learning-from-scratch-master</SearchPath>
+    <StartupFile>ANN_Training.py</StartupFile>
+    <SearchPath>1.ANN;..\DL_rawLevel;deep-learning-from-scratch-master;2.BackProp</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>DL_rawLevel</Name>
@@ -37,6 +37,24 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="1.ANN\TestActivation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2.BackProp\LossFunc.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2.BackProp\miniBatch.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3.Differential\Diff.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3.Differential\SGD.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ANN_Training.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="deep-learning-from-scratch-master\ch01\hungry.py" />
@@ -105,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="1.ANN\" />
+    <Folder Include="3.Differential\" />
     <Folder Include="ANN\" />
     <Folder Include="1.ANN\" />
     <Folder Include="deep-learning-from-scratch-master\" />
@@ -119,6 +138,8 @@
     <Folder Include="deep-learning-from-scratch-master\ch08\" />
     <Folder Include="deep-learning-from-scratch-master\common\" />
     <Folder Include="deep-learning-from-scratch-master\dataset\" />
+    <Folder Include="2.BackProp\" />
+    <Folder Include="3.Differential\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.ANN\sample_weight.pkl" />
