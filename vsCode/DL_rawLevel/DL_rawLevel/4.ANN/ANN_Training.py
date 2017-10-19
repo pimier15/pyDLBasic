@@ -28,10 +28,10 @@ if __name__ == '__main__':
     print(net.W)
 
     x = np.array([0.6,0.9])
-    t = np.array([])
+    t = np.array([0,0,1])
     print(net.predict(x))
 
-    net.train(x , )
+    net.train(x , t )
 
         
         

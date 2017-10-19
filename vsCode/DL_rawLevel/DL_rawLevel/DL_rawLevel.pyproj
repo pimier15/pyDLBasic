@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ANN_Training.py</StartupFile>
+    <StartupFile>4.ANN\ANN_Training.py</StartupFile>
     <SearchPath>1.ANN;..\DL_rawLevel;deep-learning-from-scratch-master;2.BackProp</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -39,6 +39,12 @@
     <Compile Include="1.ANN\TestActivation.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="1.LogisticRegression\Activation.py" />
+    <Compile Include="1.LogisticRegression\Layers.py" />
+    <Compile Include="1.LogisticRegression\mnistTest.py" />
+    <Compile Include="1.LogisticRegression\Network.py" />
+    <Compile Include="1.LogisticRegression\Plot.py" />
+    <Compile Include="1.LogisticRegression\TestActivation.py" />
     <Compile Include="2.BackProp\LossFunc.py">
       <SubType>Code</SubType>
     </Compile>
@@ -51,7 +57,7 @@
     <Compile Include="3.Differential\SGD.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ANN_Training.py">
+    <Compile Include="4.ANN\ANN_Training.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common.py">
@@ -122,7 +128,9 @@
     <InterpreterReference Include="Global|VisualStudio|TF_Py35" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="1.ANN\" />
+    <Folder Include="1.LogisticRegression\" />
+    <Folder Include="1.LogisticRegression\" />
+    <Folder Include="1.LogisticRegression\__pycache__\" />
     <Folder Include="3.Differential\" />
     <Folder Include="ANN\" />
     <Folder Include="1.ANN\" />
@@ -140,9 +148,12 @@
     <Folder Include="deep-learning-from-scratch-master\dataset\" />
     <Folder Include="2.BackProp\" />
     <Folder Include="3.Differential\" />
+    <Folder Include="4.ANN\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.ANN\sample_weight.pkl" />
+    <Content Include="1.LogisticRegression\sample_weight.pkl" />
+    <Content Include="1.LogisticRegression\__pycache__\Activation.cpython-35.pyc" />
     <Content Include="deep-learning-from-scratch-master\.gitignore" />
     <Content Include="deep-learning-from-scratch-master\ch01\images\fig 1-1.png" />
     <Content Include="deep-learning-from-scratch-master\ch01\images\fig 1-2.png" />
