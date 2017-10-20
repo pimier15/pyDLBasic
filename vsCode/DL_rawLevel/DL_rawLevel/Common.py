@@ -15,7 +15,7 @@ class Activation:
 
      #왜 softmax? 
     # 출력이 0~1 사이이고, 미분이 쉬운 함수들중 가장 그럴듯 해서 많이 사용하게됨. 미분은 exp이 쉽기때문에
-    def softMax(self,xs):
+    def softmax(self,xs):
         mx = np.max(xs)
         expx = np.exp( xs - mx )
         expsum = np.sum(expx)
@@ -35,12 +35,29 @@ class LossFun:
         if ys.ndim == 1:   
             ts = ts.reshape(1,ts.size)
             ys = ys.reshape(1,ys.size)
-        return -np.sum(ts*np.log(ys[np.arange(batch_size) , ts] + 1e-7) ) / batch_size
-
-
-
+        return -np.sum(ts*np.log(ys + 1e-7) ) / batch_size
 
 class Diff:
+    def NGradient(self,f,x):
+        h = 1e-4 # 0.0001
+        grad = np.zeros_like(x)
+        
+        it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite'])
+        while not it.finished:
+            idx = it.multi_index
+            tmp_val = x[idx]
+            x[idx] = float(tmp_val) + h
+            fxh1 = f(x) # f(x+h)
+            
+            x[idx] = tmp_val - h 
+            fxh2 = f(x) # f(x-h)
+            grad[idx] = (fxh1 - fxh2) / (2*h)
+            
+            x[idx] = tmp_val # 값 복원
+            it.iternext()   
+            
+        return grad
+
     def diff(self,f,x):
         h = 1e-4
         return (f(x+h)-f(x-h)) / (2*h)
@@ -67,6 +84,28 @@ class Diff:
 
 
 class SGD:
+    def NGradient(self,f,s):
+        h = 1e-4 # 0.0001
+        grad = np.zeros_like(x)
+        
+        it = np.nditer(x, flags=['multi_index'], op_flags=['readwrite'])
+        while not it.finished:
+            idx = it.multi_index
+            tmp_val = x[idx]
+            x[idx] = float(tmp_val) + h
+            fxh1 = f(x) # f(x+h)
+            
+            x[idx] = tmp_val - h 
+            fxh2 = f(x) # f(x-h)
+            grad[idx] = (fxh1 - fxh2) / (2*h)
+            
+            x[idx] = tmp_val # 값 복원
+            it.iternext()   
+            
+        return grad
+        
+
+
     def gradient(self,f,x):
         h = 1e-4
         grad = np.zeros_like(x)

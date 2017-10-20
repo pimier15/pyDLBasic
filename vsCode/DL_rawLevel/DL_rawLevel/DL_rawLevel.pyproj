@@ -4,13 +4,13 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>4.ANN\ANN_Training.py</StartupFile>
+    <StartupFile>4.ANN\TwoLayerNet.py</StartupFile>
     <SearchPath>1.ANN;..\DL_rawLevel;deep-learning-from-scratch-master;2.BackProp</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>DL_rawLevel</Name>
     <RootNamespace>DL_rawLevel</RootNamespace>
-    <InterpreterId>Global|VisualStudio|TF_Py35</InterpreterId>
+    <InterpreterId>Global|VisualStudio|Tf</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,24 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="1.ANN\Activation.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="1.ANN\Layers.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="1.ANN\mnistTest.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="1.ANN\Network.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="1.ANN\Plot.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="1.ANN\TestActivation.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="1.LogisticRegression\Activation.py" />
     <Compile Include="1.LogisticRegression\Layers.py" />
     <Compile Include="1.LogisticRegression\mnistTest.py" />
@@ -58,6 +40,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="4.ANN\ANN_Training.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="4.ANN\TwoLayerNet.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common.py">
@@ -125,7 +110,7 @@
     <Compile Include="DL_rawLevel.py" />
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|VisualStudio|TF_Py35" />
+    <InterpreterReference Include="Global|VisualStudio|Tf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="1.LogisticRegression\" />
@@ -133,7 +118,6 @@
     <Folder Include="1.LogisticRegression\__pycache__\" />
     <Folder Include="3.Differential\" />
     <Folder Include="ANN\" />
-    <Folder Include="1.ANN\" />
     <Folder Include="deep-learning-from-scratch-master\" />
     <Folder Include="deep-learning-from-scratch-master\ch01\" />
     <Folder Include="deep-learning-from-scratch-master\ch01\images\" />
@@ -151,7 +135,6 @@
     <Folder Include="4.ANN\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1.ANN\sample_weight.pkl" />
     <Content Include="1.LogisticRegression\sample_weight.pkl" />
     <Content Include="1.LogisticRegression\__pycache__\Activation.cpython-35.pyc" />
     <Content Include="deep-learning-from-scratch-master\.gitignore" />
