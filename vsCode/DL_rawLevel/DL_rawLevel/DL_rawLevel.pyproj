@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>4.ANN\miniBatch.py</StartupFile>
+    <StartupFile>Test.py</StartupFile>
     <SearchPath>1.ANN;..\DL_rawLevel;deep-learning-from-scratch-master;2.BackProp</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -49,6 +49,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="4.ANN\TwoLayerNetmy.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="5.BackProp\GraphLayer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BackProp\BackProp.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common.py">
@@ -114,6 +120,9 @@
     <Compile Include="deep-learning-from-scratch-master\dataset\mnist.py" />
     <Compile Include="deep-learning-from-scratch-master\dataset\__init__.py" />
     <Compile Include="DL_rawLevel.py" />
+    <Compile Include="Test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|VisualStudio|Tf" />
@@ -139,6 +148,8 @@
     <Folder Include="2.BackProp\" />
     <Folder Include="3.Differential\" />
     <Folder Include="4.ANN\" />
+    <Folder Include="BackProp\" />
+    <Folder Include="5.BackProp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="1.LogisticRegression\sample_weight.pkl" />
