@@ -75,3 +75,61 @@ class TwoLayerNet:
         grads['W2'], grads['b2'] = self.layers['Affine2'].dW, self.layers['Affine2'].db
 
         return grads
+
+
+import os
+import sys
+from matplotlib import pyplot as plt
+
+sys.path.append(os.pardir)
+sys.path.append(os.pardir+"dataset")
+
+from dataset.mnist import load_mnist
+
+
+
+if __name__ == "__main__":
+    (x_train,y_train) , (x_test,y_test) = load_mnist(True,True)
+
+    trainLossList = []
+    
+    # Setting
+    iter = 3
+    trainSize = x_train.shape[0] 
+    batchSize = 100
+    lr = 0.1
+    
+    inputSize = 784
+    hiddenSize = 50
+    outputSize = 10
+
+    net = TwoLayerNet( inputSize ,
+            hiddenSize , 
+            outputSize ,   )
+
+    for i in range(iter):
+        print( "Iter : {0}".format(iter) )
+        batchMask = np.random.choice(trainSize,batchSize)
+        xBatch = x_train[batchMask]
+        tBatch = y_train[batchMask]
+        
+        #Gradient Calculate
+        grad = net.numerical_gradient(xBatch,tBatch)
+        print( "Iter : {0}".format(iter) )
+
+    for key in ('W1','b1','W2','b2'):
+        # Update Parameter with SGD
+        net.params[key] -= lr * grad[key]
+
+    print( "Iter : {0}".format(iter) )
+
+    loss = net.Loss(xBatch,tBatch)
+    trainLossList.append(loss)
+
+    print( "Iter : {0}".format(iter) )
+
+
+
+
+
+

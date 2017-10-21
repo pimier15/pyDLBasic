@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>4.ANN\TwoLayerNet.py</StartupFile>
+    <StartupFile>4.ANN\miniBatch.py</StartupFile>
     <SearchPath>1.ANN;..\DL_rawLevel;deep-learning-from-scratch-master;2.BackProp</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -42,7 +42,13 @@
     <Compile Include="4.ANN\ANN_Training.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="4.ANN\TwoLayerNet.py">
+    <Compile Include="4.ANN\miniBatch.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="4.ANN\test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="4.ANN\TwoLayerNetmy.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common.py">

@@ -30,12 +30,19 @@ class LossFun:
             ys = ys.reshape(1,ys.size)
         return 1/2*(np.sum((ys - ts)**2))  / batch_size
 
-    def CEE(self,ts,ys):
+    def CEE(self,ts,ys,IsOneHot = True):
         batch_size = ys.shape[0]
         if ys.ndim == 1:   
             ts = ts.reshape(1,ts.size)
             ys = ys.reshape(1,ys.size)
-        return -np.sum(ts*np.log(ys + 1e-7) ) / batch_size
+       
+        if IsOneHot :
+             return -np.sum(ts*np.log(ys + 1e-7) ) / batch_size
+        else: 
+             return -np.sum(np.log(ys[np.arange(batch_size) , ts] + 1e-7) ) / batch_size
+    
+
+        
 
 class Diff:
     def NGradient(self,f,x):
@@ -139,3 +146,5 @@ class SGD:
             x -= lr * grad
             his.append(list(x))
         return x , his
+
+
