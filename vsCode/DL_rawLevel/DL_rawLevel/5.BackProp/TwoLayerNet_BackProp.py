@@ -1,12 +1,12 @@
 import numpy as np 
 from Common import Activation,Diff,SGD,LossFun
+from GraphLayer import *  
+from collections import OrderedDict
 
 
-
-
-class Twolayernetmy:
+class Twolayernet_BackProp:
     def __init__(self , inputSize , hiddenSize , outputSize , wInitStd = 0.01 , isOneHot = True):
-        self.IsOneHOt = isOneHot
+        self.IsOneHot = isOneHot
 
         self.params = {}
         self.params["W1"] = np.random.randn(inputSize, hiddenSize) * wInitStd
@@ -14,20 +14,21 @@ class Twolayernetmy:
         self.params["W2"] = np.random.randn(hiddenSize, outputSize) * wInitStd
         self.params["b2"] = np.zeros(outputSize)
 
+        # Create Layer
+        self.layers = OrderedDict()
+        self.layers["Affine1"] = Affine(self.params["W1"] , self.params["b1"]) 
+        self.layers["Relu"]  = ReluLayer()
+        self.layers["Affine2"] = Affine(self.params["W2"] , self.params["b2"]) 
+        self.lastLayer = SofmaxWithLoss(self.IsOneHot)
+
     def Predict(self,xs):
-        W1,W2 = self.params["W1"] , self.params["W2"]
-        b1,b2 = self.params["b1"] , self.params["b2"]
-        a1 =  np.dot(xs,W1) + b1
-        z1 = Activation().sigmoid(a1)
-        a2 = np.dot(a1,W2)+b2
-        z2 = Activation().softmax(a2)
-        return z2
+        for layer in self.layers.values():
+            xs = layer.forward(xs)
+        return xs
 
     def Loss(self,xs,ts):
-        respredict = self.Predict(xs)
-        lsFun = LossFun()
-        ceeLoss = lsFun.CEE(ts,respredict)
-        return ceeLoss
+        ys = self.Predict(xs)
+        return self.lastLayer.forward(ys , ts )
 
     def Acc_My(self,xs,ts):
         respredict = self.Predict(xs)
@@ -43,24 +44,39 @@ class Twolayernetmy:
         return hitpoint / total * 100 
 
     def Acc(self,xs,ts):
-        y = self.Predict(xs)
-        y = np.argmax(y , axis = 1)
-        t = np.argmax(ts , axis = 1)
-        
-        acc = np.sum( y == t ) / float(x.shape[0])
+        ys = self.Predict(xs)
+        ys = np.argmax(ys , axis = 1)
+        ts = np.argmax(ts , axis = 1)
+        acc = np.sum( ys == ts ) / float(xs.shape[0])
         return acc
 
     def NGradient(self,xs,ts):
         dif = Diff()
-
-        y = self.Predict(xs)
         f = lambda W : self.Loss(xs,ts) 
-
         grad={}
         grad['W1'] = dif.NGradient( f , self.params["W1"] ) 
         grad['b1'] = dif.NGradient( f , self.params["b1"] )
         grad['W2'] = dif.NGradient( f , self.params["W2"] )
         grad['b2'] = dif.NGradient( f , self.params["b2"] )
+        return grad
+
+    def BGradient(self,xs,ts):
+        self.Loss(xs,ts)
+
+        #BackProp
+        dout = 1
+        dout = self.lastLayer.backward(dout)
+
+        layers = list(self.layers.values())
+        layers.reverse()
+        for layer in layers:
+            dout = layer.backward(dout)
+
+        grad={}
+        grad['W1'] = self.layers['Affine1'].dW 
+        grad['b1'] = self.layers['Affine1'].db
+        grad['W2'] = self.layers['Affine2'].dW
+        grad['b2'] = self.layers['Affine2'].db
         return grad
 
 if __name__ == "__main__":
@@ -71,6 +87,7 @@ if __name__ == "__main__":
     
     res = net.Predict(x)
     print(res)
+
 
 
 

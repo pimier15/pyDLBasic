@@ -1,4 +1,5 @@
 import numpy as np
+from Common import LossFun , Activation
 
 class MulLayer:
     def __init__(self):
@@ -59,7 +60,7 @@ class ReluLayer:
 
     def forward(self,x):
         self.mask = ( x <= 0 )
-        out = x.Copy()
+        out = x.copy()
         out[self.mask] = 0
         return out 
 
@@ -81,28 +82,53 @@ class SigmoidLayer:
         return dx
 
 class Affine:
-
     def __init__(self , w,  b):
         self.W = w
         self.B = b
         self.x = None
-        self.dw = None 
-        self.db = None # why save?
+        self.dW = None 
+        self.db = None # why save? => use this for update parameter when doing training
 
-    def forward(self,x):
+    def forward( self , x ):
         self.x = x
         out = np.dot(x,self.W) + self.B
         return out
 
     def backward(self , dout):
         dx = np.dot(dout , self.W.T)
-        self.dw = np.dot(self.x.T , dout ) 
-        self.db = np.sum(dout , axiss = 0)
+        self.dW = np.dot(self.x.T , dout ) 
+        self.db = np.sum(dout , axis = 0)
         return dx
 
+class SofmaxWithLoss:
+    def __init__(self , IsOneHot):
+        self.loss = None
+        self.y = None
+        self.t = None
+        self.isOneHot = IsOneHot
+
+    def forward(self,xs,ts):
+        self.t = ts
+        self.y = Activation().softmax(xs) 
+        self.loss = LossFun().CEE(self.t,self.y)
+        return self.loss 
+
+    def backward(self , dout = 1):
+        batchSize = self.t.shape[0]
+        dx = (self.y - self.t) / batchSize
+        return dx
+
+
+
+
+
+
+        
+
+
+
 if __name__ == "__main__":
-
-
+    x
     def AppleExample():
         ApNum = 2
         ApVal = 100

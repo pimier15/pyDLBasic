@@ -1,12 +1,8 @@
 import numpy as  np
 
-x = np.array([[1 , -1] ,[1,2],[3,4]])
-y = x.T
+x = np.array([[1 , -1 , 0] ,[1,2 , 3 ],[3,4 , 5]])
 
-mask = (x < 0)
-print(mask)
+k = x[0:2 , :]
 
-x[mask] = 0
-print(x)
-
+print(k)
 

@@ -16,11 +16,14 @@ class Activation:
      #왜 softmax? 
     # 출력이 0~1 사이이고, 미분이 쉬운 함수들중 가장 그럴듯 해서 많이 사용하게됨. 미분은 exp이 쉽기때문에
     def softmax(self,xs):
-        mx = np.max(xs)
-        expx = np.exp( xs - mx )
-        expsum = np.sum(expx)
-        y = expx / expsum
-        return y
+        if xs.ndim == 2:
+            xs = xs.T
+            xs = xs - np.max(xs, axis=0)
+            y = np.exp(xs) / np.sum(np.exp(xs), axis=0)
+            return y.T 
+
+        xs = xs - np.max(xs) # 오버플로 대책
+        return np.exp(xs) / np.sum(np.exp(xs))
 
 class LossFun:
     def MSE(self,ts,ys):
@@ -30,16 +33,28 @@ class LossFun:
             ys = ys.reshape(1,ys.size)
         return 1/2*(np.sum((ys - ts)**2))  / batch_size
 
-    def CEE(self,ts,ys,IsOneHot = True):
+    #def CEE(self,ts,ys,IsOneHot = True):
+    #    batch_size = ys.shape[0]
+    #    if ys.ndim == 1:   
+    #        ts = ts.reshape(1,ts.size)
+    #        ys = ys.reshape(1,ys.size)
+    #   
+    #    if IsOneHot :
+    #         return -np.sum(ts*np.log(ys + 1e-7) ) / batch_size
+    #    else: 
+    #         return -np.sum(np.log(ys[np.arange(batch_size) , ts] + 1e-7) ) / batch_size
+
+    def CEE(self,ts,ys):
         batch_size = ys.shape[0]
+
         if ys.ndim == 1:   
             ts = ts.reshape(1,ts.size)
             ys = ys.reshape(1,ys.size)
+
+        if ts.size == ys.size:
+            ts = ts.argmax(axis=1)
        
-        if IsOneHot :
-             return -np.sum(ts*np.log(ys + 1e-7) ) / batch_size
-        else: 
-             return -np.sum(np.log(ys[np.arange(batch_size) , ts] + 1e-7) ) / batch_size
+        return -np.sum(np.log(ys[np.arange(batch_size), ts])) / batch_size
     
 
         
