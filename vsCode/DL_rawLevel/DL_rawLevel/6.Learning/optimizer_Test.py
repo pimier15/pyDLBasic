@@ -12,6 +12,24 @@ class SGD:
         for key in params.keys():
             params[key] -= self.lr*grads[key]
 
+class Momentum:
+    def __init__(self,lr = 0.01 , momentum = 0.9):
+        self.lr = lr
+        self.momentum = momentum
+        self.v = None
+
+    def update(self, params, grad):
+        if self.v is None:
+            self.v = {}
+            for key , val in parmas.items():
+                self.v[key] = np.zeros_like(val)
+
+            for key in params.keys():
+                self.v[key] = self.momentum*self.v[key] - self.lr*grad[key]
+                params[key] += self.v[key]
+
+
+
 
 def CreateMap(x,y):
     z = 1.0/20.0 *(x**2) + y**2
@@ -22,13 +40,13 @@ def CreateMap2(x,y):
     return z
 
 
-x = np.arange(-10,10,0.5)
-y = np.arange(-10,10,0.5)
+x = np.arange(-10,10,0.1)
+y = np.arange(-10,10,0.1)
 xs ,ys = np.meshgrid(x,y)
 z = CreateMap(xs,ys)
 
 fig = plt.figure()
-ax =fig.gca(projection='3d')
+#ax =fig.gca(projection='3d')
 plt.hold(True)
 
 
@@ -78,8 +96,10 @@ for i in range(1000):
         #print()
     SGD().update(Params,Grad)
 
+plt.scatter(xs,ys,c = z )
 
-sct = ax.scatter(scaterAList,scaterBList,scaterZList, s = 100 , c = 'black')
+
+#sct = ax.scatter(scaterAList,scaterBList,scaterZList, s = 100 , c = 'black')
 #surf = ax.plot_surface(xs,ys,z, cmap = cm.jet )
 
 plt.show()

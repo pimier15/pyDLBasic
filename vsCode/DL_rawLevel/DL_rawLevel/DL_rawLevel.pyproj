@@ -10,7 +10,7 @@
     <OutputPath>.</OutputPath>
     <Name>DL_rawLevel</Name>
     <RootNamespace>DL_rawLevel</RootNamespace>
-    <InterpreterId>Global|VisualStudio|Tf</InterpreterId>
+    <InterpreterId>Global|VisualStudio|TF_Py35</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -137,7 +137,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|VisualStudio|Tf" />
+    <InterpreterReference Include="Global|VisualStudio|TF_Py35" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="1.LogisticRegression\" />
