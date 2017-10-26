@@ -44,13 +44,12 @@ class DivideLayer:
             self.y = y
             out = x/y
             return out
-        return None 
+        return None
 
     def backward(self,dout):
         dx = self.y**-1
         dy = -self.x * self.y**-2
         return dx,dy
-        
 
 
 
