@@ -5,12 +5,12 @@
     <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>6.Learning\optimizer_Test.py</StartupFile>
-    <SearchPath>..\DL_rawLevel;deep-learning-from-scratch-master;2.BackProp;5.BackProp;4.ANN;3.Differential</SearchPath>
+    <SearchPath>..\DL_rawLevel;2.BackProp;5.BackProp;4.ANN;3.Differential;6.Learning</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>DL_rawLevel</Name>
     <RootNamespace>DL_rawLevel</RootNamespace>
-    <InterpreterId>Global|VisualStudio|Tf</InterpreterId>
+    <InterpreterId>Global|VisualStudio|TF_Py35</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,7 +63,13 @@
     <Compile Include="5.BackProp\TwoLayerNet_BackProp.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="6.Learning\Ooptimizer.py">
+    <Compile Include="6.Learning\Optimizer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="6.Learning\OptimizerCompare.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="6.Learning\OptimizerLib.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="6.Learning\optimizer_Test.py">
@@ -137,7 +143,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <InterpreterReference Include="Global|VisualStudio|Tf" />
+    <InterpreterReference Include="Global|VisualStudio|TF_Py35" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="1.LogisticRegression\" />
