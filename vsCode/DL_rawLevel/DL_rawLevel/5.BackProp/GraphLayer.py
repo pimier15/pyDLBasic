@@ -51,6 +51,19 @@ class DivideLayer:
         dy = -self.x * self.y**-2
         return dx,dy
         
+class NSquare:
+    def __init__(self):
+        self.x = None
+        self.n  = None
+
+    def forward(self,x,n):
+        self.x = x
+        self.n = n
+        return x**n
+
+    def backward(self,dout):
+        dx = dout*self.n*self.x**(self.n-1)
+        return dx
 
 
 
