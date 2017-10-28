@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c9d163c2-d327-490f-a52f-238d128eb21f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>6.Learning\optimizer_Test.py</StartupFile>
+    <StartupFile>6.Learning\OptimizerCompare.py</StartupFile>
     <SearchPath>..\DL_rawLevel;deep-learning-from-scratch-master;2.BackProp;5.BackProp;4.ANN;3.Differential</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -64,6 +64,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="6.Learning\Ooptimizer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="6.Learning\OptimizerCompare.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="6.Learning\optimizer_Test.py">

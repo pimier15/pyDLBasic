@@ -80,7 +80,7 @@ class Twolayernet_BackProp:
         return grad
 
 if __name__ == "__main__":
-    net = Twolayernet(784,100,10)
+    net = Twolayernet_BackProp(784,100,10)
 
     x = np.random.randn(100,784)
     y = np.random.randn(100,10)

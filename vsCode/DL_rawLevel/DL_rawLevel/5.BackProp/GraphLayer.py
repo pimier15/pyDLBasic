@@ -128,7 +128,7 @@ class SofmaxWithLoss:
 
 
 if __name__ == "__main__":
-    x
+    
     def AppleExample():
         ApNum = 2
         ApVal = 100
@@ -179,6 +179,26 @@ if __name__ == "__main__":
         dL1 , dL2  = L3.backward( dL3 )
         dApNum , dApVal = L1.backward( dL1 )
         dOrNum , dOrVal = L2.backward( dL2 )
+        print()
+
+    def AffineTest():
+        x = np.array([[1,2,3],[4,5,6]])
+        w = np.array([[1,10],[100,1000],[10000,100000]])
+        b = np.array([0.5 , 0.05])
+
+        L1 = Affine(w,b)
+        res = L1.forward(x)
+        print(res)
+
+        res2 = L1.backward(1)
+        print()
+        print(res2)
 
         print()
+        print(L1.dW)
+
+        print()
+        print(L1.db)
+
+    AffineTest();
 
